@@ -1,10 +1,13 @@
-FROM python:3.13
+FROM python:3.13-slim
 
 WORKDIR /app
 
+# Устанавливаем зависимости с увеличенным таймаутом и зеркалом
+RUN pip install --no-cache-dir --default-timeout=100 -i https://pypi.tuna.tsinghua.edu.cn/simple django
+
+# Копируем проект
 COPY . .
 
-RUN pip install django
 
 EXPOSE 8000
 
