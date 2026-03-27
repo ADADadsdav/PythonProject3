@@ -1,17 +1,48 @@
-# PythonProject3
+# Лабораторная работа №1 - Клиент-серверное взаимодействие
 
-# Lab 1 - Client Server Interaction
+## Описание проекта
+Простое веб-приложение на Django, которое возвращает количество дней до наступления Нового года в формате JSON.
 
-## Run locally
+## Локальный запуск
 
+### Установка зависимостей
+```
 pip install django
+### Запуск сервера
 python manage.py runserver
+```
 
-## Run with Docker
+После запуска сервер будет доступен по адресу: `http://localhost:8000`
 
+## Запуск через Docker
+
+### Сборка образа
+```bash
 docker build -t lab1 .
+```
+
+### Запуск контейнера
+```bash
 docker run -p 8000:8000 lab1
+```
 
-## Endpoint
+Приложение будет доступно по адресу: `http://localhost:8000`
 
+## Использование
+
+### Эндпоинт
+```
 GET /info/
+```
+
+### Пример запроса (cURL)
+```bash
+curl --location 'http://localhost:8000/info/'
+```
+
+### Пример ответа
+```json
+{
+    "days_before_new_year": 280
+}
+```
